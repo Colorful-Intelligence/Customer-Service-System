@@ -1,0 +1,53 @@
+﻿@model CustomerServiceSystem.Model.Models.EmailModel
+@{
+    ViewData["Title"] = "EmailOperation";
+    Layout = "~/Views/Shared/_TechnicianLayout.cshtml";
+}
+<br />
+<br />
+
+<h1 style="text-align:center;color:blue">SEND EMAIL</h1>
+
+
+    @using (Html.BeginForm("EmailOperation", "Technicians", FormMethod.Post ,new {enctype = "multipart/form-data"}))
+    {
+<table class="table table-hover">
+    <tr>
+        <td>
+            TO
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.To, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.To, "", new { @class = "error" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            SUBJECT
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            BODY
+        </td>
+        <td>
+            @Html.TextAreaFor(x => x.Body, new { @class = "form-control", style = "height:200px" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            FILE ATTACHMENT
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.Attachment, new { type = "file" })
+        </td>
+    </tr>
+</table>
+        <button class="btn btn-default" style="background-color:green;color:white">Send Email</button>
+    }
+<h1 style="text-align:center;color:forestgreen">@Html.ViewBag.Message</h1>
+<h2 style="text-align:center;color:red">@Html.ViewBag.ErrorMessage</h2>
+

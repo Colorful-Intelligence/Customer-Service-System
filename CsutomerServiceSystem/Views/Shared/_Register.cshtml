@@ -1,0 +1,109 @@
+﻿<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="Favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <title>Customer Register Page</title>
+</head>
+<body style="background-color:cornflowerblue">
+   
+
+    <main class="my-form">
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="cotainer">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header" style="text-align:center">Customer Register Form</div>
+                        <div class="card-body">
+                            @RenderBody()
+                            <form name="my-form" onsubmit="return validform()" action="/Login/SignUP/" method="post">
+
+                                <div class="form-group row">
+                                    <label for="Name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="Name" class="form-control" name="Name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="Surname" class="col-md-4 col-form-label text-md-right">Surname</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="Surname" class="form-control" name="Surname" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="UserName" class="col-md-4 col-form-label text-md-right">User Name</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="UserName" class="form-control" name="UserName" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="Phone" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="Phone" class="form-control" name="Phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="5XX-XXX-XXXX" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="Email" class="col-md-4 col-form-label text-md-right">E-mail</label>
+                                    <div class="col-md-6">
+                                        <input type="email" id="Email" class="form-control" name="Email" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="Address" class="col-md-4 col-form-label text-md-right">Address</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="Address" class="form-control" name="Address" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="Password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="Password" class="form-control" name="Password" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Register
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="text-center">
+                            <br />
+                            <strong style="color:red">@Html.TempData["RegisterErrorUsername"]</strong>
+                            <strong style="color:red">@Html.TempData["RegisterErrorEmail"]</strong>
+                            <strong style="color:red">@Html.TempData["RegisterMessage"]</strong>
+                        </div>
+                        <div class="text-center">
+                            <br />
+                            <a href="/Login/Index" class="txt2 hov1">
+                                Return to Login Page
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>

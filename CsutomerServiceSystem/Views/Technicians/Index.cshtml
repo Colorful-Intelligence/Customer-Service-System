@@ -1,0 +1,46 @@
+﻿@using CustomerServiceSystem.Model.Models
+@model List<Registration>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TechnicianLayout.cshtml";
+}
+
+<br />
+<h1 style="text-align:center">List of Registrations</h1>
+<br />
+<table class="table table-bordered" style="text-align: center">
+    <tr>
+        <th style="text-align: center">ID</th>
+        <th style="text-align: center">Customer ID</th>
+        <th style="text-align: center">Department</th>
+        <th style="text-align: center">Department ID</th>
+        <th style="text-align: center">Title</th>
+        <th style="text-align: center">Description</th>
+        <th style="text-align: center">Created By</th>
+        <th style="text-align: center">Created On</th>
+        <th style="text-align: center">Modified By</th>
+        <th style="text-align: center">Modified On</th>
+        <th style="text-align: center">Statu ID</th>
+        <th style="text-align: center" colspan="2">Operations</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.UserId</td>
+            <td>@x.Department.Title</td>
+            <td>@x.Department.Id</td>
+            <td>@x.Title</td>
+            <td>@x.Description</td>
+            <td>@x.CreatedBy</td>
+            <td>@x.CreatedOn</td>
+            <td>@x.ModifiedBy</td>
+            <td>@x.ModifiedOn</td>
+            <td>@x.Statu.Title</td>
+            <td align="center"><a href="/Technicians/GetRegistrations/@x.Id" class="btn btn-success">Update</a></td>
+            <td align="center"><a href="/Technicians/RegistrationDetail/@x.UserId" class="btn btn-info">Detail</a></td>
+        </tr>
+
+    }
+</table>
+

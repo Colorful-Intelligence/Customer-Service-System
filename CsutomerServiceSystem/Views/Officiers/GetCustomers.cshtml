@@ -1,0 +1,48 @@
+﻿@using CustomerServiceSystem.Model.Models
+@model List<User>
+@{
+    ViewData["Title"] = "GetCustomers";
+    Layout = "~/Views/Shared/_OfficierLayout.cshtml";
+}
+
+<br />
+<h1 style="text-align:center">List of Customers</h1>
+<br />
+@using (Html.BeginForm())
+{
+    <p>
+        <b>Customer Name:</b> @Html.TextBox("p")
+
+        <input type="submit" value="Search" style="background-color:cornflowerblue;color:white" />
+    </p>
+}
+
+<div class="table-responsive">
+    <table class="table" style="text-align:center">
+        <tr>
+            <th style="text-align:center">ID</th>
+            <th style="text-align:center">Customer Name</th>
+            <th style="text-align:center">Customer Surname</th>
+            <th style="text-align:center">Customer Phone</th>
+            <th style="text-align:center">Customer e-mail</th>
+            <th style="text-align:center">Customer Address</th>
+
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.Name</td>
+                <td>@x.Surname</td>
+                <td>@x.Phone</td>
+                <td>@x.Email</td>
+                <td>@x.Address</td>
+
+
+            </tr>
+
+        }
+    </table>
+</div>
+
+

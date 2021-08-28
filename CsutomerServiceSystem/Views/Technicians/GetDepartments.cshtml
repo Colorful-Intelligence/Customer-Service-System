@@ -1,0 +1,33 @@
+﻿@using CustomerServiceSystem.Model.Models
+@model List<Department>
+@{
+    ViewData["Title"] = "GetDepartments";
+    Layout = "~/Views/Shared/_TechnicianLayout.cshtml";
+}
+
+<br />
+<h1 style="text-align:center">List of Departments</h1>
+<br />
+
+<div class="table-responsive">
+    <table class="table" style="text-align: center">
+        <tr>
+            <th style="text-align: center">Department ID</th>
+            <th style="text-align: center">Department Name</th>
+
+            <th style="text-align: center" colspan="1">Operation</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.Title</td>
+                <td align="center"><a href="/Technicians/DepartmentDetail/@x.Id" class="btn btn-primary">Details</a></td>
+
+            </tr>
+
+        }
+    </table>
+</div>
+
+

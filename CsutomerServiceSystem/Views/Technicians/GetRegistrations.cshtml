@@ -1,0 +1,42 @@
+﻿@model CustomerServiceSystem.Model.Models.Registration
+@{
+    ViewData["Title"] = "GetRegistrations";
+    Layout = "~/Views/Shared/_TechnicianLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateRegistration", "Technicians", FormMethod.Post))
+{
+    <b>Registration Id</b>
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "true" })
+    <br />
+    <b>Customer Id</b>
+    @Html.TextBoxFor(x => x.UserId, new { @class = "form-control", @readonly = "true" })
+    <br />
+    <b>Department Id</b>
+    @Html.TextBoxFor(x => x.DepartmentId, new { @class = "form-control", @readonly = "true" })
+    <br />
+    <b>Title</b>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <b>Description</b>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <b>Created By</b>
+    @Html.TextBoxFor(x => x.CreatedBy, new { @class = "form-control" })
+    <br />
+    <b>Created On</b>
+    @Html.TextBoxFor(x => x.CreatedOn, new { @class = "form-control" })
+    <br />
+    <b>Modified By</b>
+    @Html.TextBoxFor(x => x.ModifiedBy, new { @class = "form-control" , required = "required" })
+    <br />
+    <b>Modified On</b>
+    @Html.TextBoxFor(x => x.ModifiedOn, new { @class = "form-control" , required = "required" })
+    <br />
+    <b>Statu ID</b>
+    @Html.DropDownListFor(x => x.StatuId, (List<SelectListItem>)ViewBag.statusT, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" style="background-color:green;color:white">Save Changes</button>
+
+}
+

@@ -1,0 +1,54 @@
+﻿@using CustomerServiceSystem.Model.Models
+@model List<Registration>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_OfficierLayout.cshtml";
+}
+
+<br />
+<h1 style="text-align:center">List of Registrations</h1>
+<br />
+
+
+<a href="/Officiers/AddRegistration/" class="btn btn-primary">Add New Registration</a>
+<br />
+<br />
+<div class="table-responsive">
+    <table class="table" style="text-align: center">
+        <tr>
+            <th style="text-align: center">ID</th>
+            <th style="text-align: center">Customer ID</th>
+            <th style="text-align: center">Department</th>
+            <th style="text-align: center">Department ID</th>
+            <th style="text-align: center">Title</th>
+            <th style="text-align: center">Description</th>
+            <th style="text-align: center">Created By</th>
+            <th style="text-align: center">Created On</th>
+            <th style="text-align: center">Modified By</th>
+            <th style="text-align: center">Modified On</th>
+            <th style="text-align: center">Statu</th>
+            <th style="text-align: center" colspan="1">Operation</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.UserId</td>
+                <td>@x.Department.Title</td>
+                <td>@x.Department.Id</td>
+                <td>@x.Title</td>
+                <td>@x.Description</td>
+                <td>@x.CreatedBy</td>
+                <td>@x.CreatedOn</td>
+                <td>@x.ModifiedBy</td>
+                <td>@x.ModifiedOn</td>
+                <td>@x.Statu.Title</td>
+
+                <td align="center"><a href="/Officiers/RegistrationDetail/@x.UserId" class="btn btn-primary">Details</a></td>
+            </tr>
+
+        }
+    </table>
+</div>
+
+
